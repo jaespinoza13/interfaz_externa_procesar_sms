@@ -8,14 +8,14 @@ pipeline {
     }
 
     environment {
-        VERSION_DESPLIEGUE  = '0.0.0'
+        VERSION_DESPLIEGUE  = '1.0.0'
         VERSION_PRODUCCION  = '0.0.0'
-        NOMBRE_CONTENEDOR   = 'servicio-autenticadoremergencia-e2'
-        NOMBRE_IMAGEN       = 'ws_autenticadoremergencia_e2'
-        PUERTO              = '6001'
+        NOMBRE_CONTENEDOR   = 'servicio-interfaz_externa_procesar_sms'
+        NOMBRE_IMAGEN       = 'interfaz_externa_procesar_sms'
+        PUERTO              = '7003'
         PUERTO_CONTENEDOR   = '80'
-        RUTA_CONFIG 		= '/config/InterfazExternaCallCenter/'
-        RUTA_LOGS           = '/app/InterfazExternaCallCenter'
+        RUTA_CONFIG 		= '/config/InterfazExternaProcesarSms/'
+        RUTA_LOGS           = '/app/InterfazExternaProcesarSms'
     }
 
 
