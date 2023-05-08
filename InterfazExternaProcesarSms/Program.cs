@@ -5,8 +5,10 @@ using InterfazExternaProcesarSms.Middleware;
 var builder = WebApplication.CreateBuilder(args);
 var allowSpecificOrigins = "_AllowSpecifiOrigins";
 
-builder.Services.AddControllers();
+// Add services to the container.
 
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(s =>
 {
@@ -64,6 +66,7 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
