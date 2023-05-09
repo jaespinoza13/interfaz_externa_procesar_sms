@@ -14,7 +14,7 @@ pipeline {
         NOMBRE_IMAGEN       = 'interfaz_externa_procesar_sms'
         PUERTO              = '7003'
         PUERTO_CONTENEDOR   = '80'
-        RUTA_CONFIG 		= '/config/InterfazExternaProcesarSms/'
+        RUTA_CONFIG 		= '/Config/InterfazExternaProcesarSms/'
         RUTA_LOGS           = '/app/InterfazExternaProcesarSms'
     }
 
