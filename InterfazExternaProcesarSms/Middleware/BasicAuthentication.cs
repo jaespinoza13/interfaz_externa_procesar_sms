@@ -1,4 +1,5 @@
-﻿using WsInterfazProcesarSms.Model;
+﻿using System.Text.Json;
+using WsInterfazProcesarSms.Model;
 using Microsoft.Extensions.Options;
 
 namespace InterfazExternaProcesarSms.Middleware
@@ -32,15 +33,31 @@ namespace InterfazExternaProcesarSms.Middleware
                 }
                 else
                 {
-                    httpContext.Response.StatusCode = Convert.ToInt32(System.Net.HttpStatusCode.Unauthorized);
+                    await ResException(httpContext, "Credenciales erroneas", Convert.ToInt32(System.Net.HttpStatusCode.Unauthorized), System.Net.HttpStatusCode.Unauthorized.ToString());
+
                 }
 
             }
             else
             {
-                httpContext.Response.StatusCode = Convert.ToInt32(System.Net.HttpStatusCode.Unauthorized);
+                await ResException(httpContext, "No autorizado", Convert.ToInt32(System.Net.HttpStatusCode.Unauthorized), System.Net.HttpStatusCode.Unauthorized.ToString());
             }
 
+        }
+
+        internal async Task ResException(HttpContext httpContext, String infoAdicional, int statusCode, string str_res_id_servidor)
+        {
+            ResConsumidor respuesta = new();
+
+            httpContext.Response.ContentType = "application/json; charset=UTF-8";
+            httpContext.Response.StatusCode = statusCode;
+
+            respuesta.codigo = "001";
+            respuesta.mensaje = infoAdicional;
+
+            string str_respuesta = JsonSerializer.Serialize(respuesta);
+
+            await httpContext.Response.WriteAsync(str_respuesta);
         }
     }
 }

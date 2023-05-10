@@ -25,6 +25,7 @@ namespace WsInterfazProcesarSms.Neg
             object respuesta = new();
             ResComun res = new();
 
+            // Llenar el request del header para registrar los logs
             res.LlenarResHeader(sol_tran);
             sol_tran.dt_fecha_operacion = res.dt_fecha_operacion;
 
@@ -42,6 +43,7 @@ namespace WsInterfazProcesarSms.Neg
 
             try
             {
+                // Se llama al método que consume el servicio del api gateway
                 respuesta = respuesta_servicio(sol_tran_2, serviceSettings.api_gateway_procesarsms + str_operacion, serviceSettings.auth_api_gateway, str_token);
 
                 var diccionario_resp = JsonSerializer.Deserialize<Dictionary<string, object>>(JsonSerializer.Serialize(respuesta));
@@ -81,6 +83,7 @@ namespace WsInterfazProcesarSms.Neg
                     MaxTimeout = 300000
                 };
                 var client = new RestClient(options);
+                // Construir lapeticion con todos los headers de autenticacion y el cuerpo de la petición
                 var request = new RestRequest()
                     .AddHeader("Authorization-Gateway", "Auth-Gateway " + auth)
                     .AddHeader("Authorization", str_token)
@@ -102,6 +105,7 @@ namespace WsInterfazProcesarSms.Neg
 
                 if(data != null)
                 {
+                    // Construir respuesta segun requerimiento de Eclipsoft
                     respuesta = new
                     {
                         codigo = data.str_res_codigo,
