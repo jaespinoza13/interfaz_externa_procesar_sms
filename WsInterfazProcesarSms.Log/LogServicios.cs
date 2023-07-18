@@ -22,15 +22,20 @@ namespace WsInterfazProcesarSms.Log
                 }
             });
 
+            recorrer_diccionario(settings, diccionario);
+        }
+
+        private static void recorrer_diccionario(ServiceSettings settings, Dictionary<string, object> diccionario)
+        {
             foreach (var obj in diccionario)
             {
                 try
                 {
-                    if(obj.Value != null)
+                    if (obj.Value != null)
                     {
-                        string cadena_value = obj.Value.ToString();
+                        var cadena_value = obj.Value.ToString();
 
-                        if(!String.IsNullOrEmpty(cadena_value) && cadena_value!.Substring(0,1) == "{" && cadena_value!.Substring(cadena_value.Length - 1) == "]")
+                        if (!String.IsNullOrEmpty(cadena_value) && cadena_value!.Substring(0, 1) == "{" && cadena_value!.Substring(cadena_value.Length - 1) == "]")
                         {
                             var diccionario_interno = JsonSerializer.Deserialize<Dictionary<string, object>>(JsonSerializer.Serialize(obj.Value));
                             settings.lst_atributos_sin_logs!.ForEach(atributo =>

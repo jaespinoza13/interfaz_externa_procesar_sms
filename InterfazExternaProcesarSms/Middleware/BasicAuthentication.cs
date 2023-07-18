@@ -45,7 +45,7 @@ namespace InterfazExternaProcesarSms.Middleware
 
         }
 
-        internal async Task ResException(HttpContext httpContext, String infoAdicional, int statusCode, string str_res_id_servidor)
+        internal static async Task ResException(HttpContext httpContext, String infoAdicional, int statusCode, string str_res_id_servidor)
         {
             ResConsumidor respuesta = new();
 

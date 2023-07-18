@@ -2,6 +2,6 @@
 {
     public class ReqProcesarSms : Header
     {
-        public Sms sms { get; set; }
+        public Sms sms { get; set; } = new Sms();
     }
 }

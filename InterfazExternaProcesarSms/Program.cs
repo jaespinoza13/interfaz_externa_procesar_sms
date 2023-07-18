@@ -39,7 +39,7 @@ builder.Services.AddSwaggerGen(s =>
                     Id = "basic"
                 }
             },
-            new string[] { }
+            Array.Empty<string>()
         }
     });
 });

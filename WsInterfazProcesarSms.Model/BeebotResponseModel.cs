@@ -21,7 +21,7 @@ namespace WsInterfazProcesarSms.Model
         public string str_ente { get; set; } = String.Empty;
         public string str_nombres { get; set; } = String.Empty;
         public bool bln_validacion_numero { get; set; }
-        public Diccionario diccionario { get; set; }
+        public Diccionario diccionario { get; set; } = new Diccionario();
         public string str_res_estado_transaccion { get; set; } = String.Empty;
     }
 
