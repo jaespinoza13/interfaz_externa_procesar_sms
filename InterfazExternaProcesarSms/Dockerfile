@@ -7,10 +7,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["InterfazExternaProcesarSms/InterfazExternaProcesarMensText.csproj", "InterfazExternaProcesarSms/"]
-RUN dotnet restore "InterfazExternaProcesarSms/InterfazExternaProcesarMensText.csproj"
+COPY ["InterfazExternaProcesarMensText/InterfazExternaProcesarMensText.csproj", "InterfazExternaProcesarMensText/"]
+RUN dotnet restore "InterfazExternaProcesarMensText/InterfazExternaProcesarMensText.csproj"
 COPY . .
-WORKDIR "/src/InterfazExternaProcesarSms"
+WORKDIR "/src/InterfazExternaProcesarMensText"
 RUN dotnet build "InterfazExternaProcesarMensText.csproj" -c Release -o /app/build
 
 FROM build AS publish
