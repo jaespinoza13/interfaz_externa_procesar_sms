@@ -1,22 +1,21 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
 EXPOSE 80
-EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["InterfazExternaProcesarMensText/InterfazExternaProcesarMensText.csproj", "InterfazExternaProcesarMensText/"]
-RUN dotnet restore "InterfazExternaProcesarMensText/InterfazExternaProcesarMensText.csproj"
+COPY ["InterfazExternaProcesarSms/InterfazExternaProcesarSms.csproj", "InterfazExternaProcesarSms/"]
+RUN dotnet restore "InterfazExternaProcesarSms/InterfazExternaProcesarSms.csproj"
 COPY . .
-WORKDIR "/src/InterfazExternaProcesarMensText"
-RUN dotnet build "InterfazExternaProcesarMensText.csproj" -c Release -o /app/build
+WORKDIR "/src/InterfazExternaProcesarSms"
+RUN dotnet build "InterfazExternaProcesarSms.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "InterfazExternaProcesarMensText.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "InterfazExternaProcesarSms.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "InterfazExternaProcesarMensText.dll"]
+ENTRYPOINT ["dotnet", "InterfazExternaProcesarSms.dll"]
