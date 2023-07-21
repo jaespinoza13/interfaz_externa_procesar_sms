@@ -14,9 +14,9 @@ builder.Services.AddSwaggerGen(s =>
 {
     s.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "Servicio de Interfaz para Procesar Sms",
+        Title = "Servicio de Interfaz para Procesar Transferencias mediante Sms",
         Version = "v1",
-        Description = "Interfaz externa para la integración entre Eclipsoft y CoopMEGO"
+        Description = "Interfaz externa para la integración entre Eclipsoft y CoopMego"
     });
 
     s.AddSecurityDefinition("basic", new OpenApiSecurityScheme

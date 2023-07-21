@@ -14,8 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WsInterfazProcesarSms.Model\WsInterfazProcesarMensText.Model.csproj" />
-    <ProjectReference Include="..\WsInterfazProcesarSms.Neg\WsInterfazProcesarMensText.Neg.csproj" />
+    <ProjectReference Include="..\WsInterfazProcesarSms.Model\WsInterfazProcesarTransf.Model.csproj" />
+    <ProjectReference Include="..\WsInterfazProcesarSms.Neg\WsInterfazProcesarTransf.Neg.csproj" />
   </ItemGroup>
 
 </Project>
