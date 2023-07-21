@@ -18,7 +18,7 @@ namespace InterfazExternaProcesarSms.Middleware
 
         public async Task Invoke(HttpContext httpContext)
         {
-            string authHeader = httpContext.Request.Headers["Authorization"];
+            var authHeader = httpContext.Request.Headers["Authorization"].FirstOrDefault();
             Console.WriteLine(authHeader);
 
             if (authHeader != null && authHeader.StartsWith("Basic"))
