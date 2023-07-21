@@ -56,7 +56,6 @@ namespace InterfazExternaProcesarSms.Middleware
             respuesta.mensaje = infoAdicional;
 
             string str_respuesta = JsonSerializer.Serialize(respuesta);
-
             await httpContext.Response.WriteAsync(str_respuesta);
         }
     }
