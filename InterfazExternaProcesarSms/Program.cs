@@ -24,7 +24,7 @@ builder.Services.AddSwaggerGen(s =>
         Name = "Authorization",
         Type = SecuritySchemeType.Http,
         Scheme = "Basic",
-        In = ParameterLocation.Header,
+        In = ParameterLocation.Header, 
         Description = "Seguridad básica del API"
     });
 
