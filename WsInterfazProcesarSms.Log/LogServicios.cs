@@ -8,7 +8,7 @@ using WsInterfazProcesarSms.Model;
 
 namespace WsInterfazProcesarSms.Log
 {
-    public class LogServicios
+    public static class LogServicios
     {
         private static readonly object objetoBloqueoJson = new();
 
@@ -73,7 +73,6 @@ namespace WsInterfazProcesarSms.Log
                     {
                         using (var writer = new StreamWriter(fs))
                         {
-                            //var linea = JsonSerializer.Serialize(obj);
                             writer.WriteLine(DateTime.Now.ToString("HHmmssff") + " " + str_tipo + JsonSerializer.Serialize(obj));
                         }
                         
