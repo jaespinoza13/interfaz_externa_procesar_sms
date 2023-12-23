@@ -22,6 +22,7 @@ namespace InterfazExternaProcesarSms.Controllers
         {
             InterfazProcesarSmsNeg objUtilidades = new(serviceSettings);
             var str_token = HttpContext.Request.Headers["Authorization"].FirstOrDefault();
+            
 
             try
             {
