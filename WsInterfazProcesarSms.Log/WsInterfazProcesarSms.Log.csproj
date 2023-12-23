@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WsInterfazProcesarSms.Model\WsInterfazProcesarTransf.Model.csproj" />
+    <ProjectReference Include="..\WsInterfazProcesarSms.Model\WsInterfazProcesarSms.Model.csproj" />
   </ItemGroup>
 
 </Project>

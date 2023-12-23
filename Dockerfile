@@ -6,16 +6,16 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["InterfazExternaProcesarSms/InterfazExternaProcesarTransf.csproj", "InterfazExternaProcesarSms/"]
-RUN dotnet restore "InterfazExternaProcesarSms/InterfazExternaProcesarTransf.csproj"
+COPY ["WsInterfazProcesarSms/WsInterfazProcesarSms.csproj", "WsInterfazProcesarSms/"]
+RUN dotnet restore "WsInterfazProcesarSms/WsInterfazProcesarSms.csproj"
 COPY . .
-WORKDIR "/src/InterfazExternaProcesarSms"
-RUN dotnet build "InterfazExternaProcesarTransf.csproj" -c Release -o /app/build
+WORKDIR "/src/WsInterfazProcesarSms"
+RUN dotnet build "WsInterfazProcesarSms.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "InterfazExternaProcesarTransf.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "WsInterfazProcesarSms.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "InterfazExternaProcesarTransf.dll"]
+ENTRYPOINT ["dotnet", "WsInterfazProcesarSms.dll"]

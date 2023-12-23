@@ -12,8 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WsInterfazProcesarSms.Log\WsInterfazProcesarTransf.Log.csproj" />
-    <ProjectReference Include="..\WsInterfazProcesarSms.Model\WsInterfazProcesarTransf.Model.csproj" />
+    <ProjectReference Include="..\WsInterfazProcesarSms.Log\WsInterfazProcesarSms.Log.csproj" />
+    <ProjectReference Include="..\WsInterfazProcesarSms.Model\WsInterfazProcesarSms.Model.csproj" />
   </ItemGroup>
 
 </Project>
